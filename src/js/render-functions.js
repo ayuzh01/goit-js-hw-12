@@ -1,35 +1,35 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-export default function addImagesToHtml(images) {
-  const gallery = document.querySelector('.gallery');
+    const lightbox = new SimpleLightbox('.gallery-list a', {
+        captions: true,
+        captionsData: 'alt',
+        captionsDelay: 250
+    });
 
-  const imagesHtml = images
-    .map(image => {
-      return `<li class="item-ul">
-  <a href="${image.largeImageURL}"><img src="${image.webformatURL}" alt="${image.tags}" /></a>
-  <div class="about-img-div">
-    <p class="description-img">Likes</p>
-    <p class="description-img">Views</p>
-    <p class="description-img">Comments</p>
-    <p class="description-img">Downloads</p>
-    <span class="description-value">${image.likes}</span>
-    <span class="description-value">${image.views}</span>
-    <span class="description-value">${image.comments}</span>
-    <span class="description-value">${image.downloads}</span>
-  </div>
-</li>`;
-    })
-    .join('');
+export function createImages(data) {
 
-  gallery.insertAdjacentHTML('beforeend', imagesHtml);
+    const galleryList = document.querySelector('.gallery-list');
 
-  const lightBox = new SimpleLightbox('.gallery li a', {
-    captions: true,
-    captionsData: 'alt',
-    captionPosition: 'bottom',
-    captionDelay: 250,
-  });
+    let images = data.hits.map((image) =>
+        `<div class="image-wrapper">
+    <a href="${image.largeImageURL}">
+    <img class="gallery-img" src="${image.webformatURL}" alt="${image.tags}"></img>
+    </a>
+    <div class="text-wrapper">
+    <div class="text-item"><h5 class="text-header">Likes</h5><p class="text-paragraph">${image.likes}</p></div>
+    <div class="text-item"><h5 class="text-header">Views</h5><p class="text-paragraph">${image.views}</p></div>
+    <div class="text-item"><h5 class="text-header">Comments</h5><p class="text-paragraph">${image.comments}</p></div>
+    <div class="text-item"><h5 class="text-header">Downloads</h5><p class="text-paragraph">${image.downloads}</p></div>
+    </div>
+    </div>`)
+        .join("");
+        
+    galleryList.insertAdjacentHTML('beforeend', images);
+    lightbox.refresh();
+}
 
-  lightBox.refresh();
+export function clearImages() {
+    const galleryList = document.querySelector('.gallery-list');
+    galleryList.innerHTML = "";
 }
