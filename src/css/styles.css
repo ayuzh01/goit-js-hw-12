@@ -50,6 +50,11 @@ img {
 }
 
 /* =========================STYLE=========================== */
+.gallery-title {
+  margin-top: 8px;
+  margin-left: 19px;
+  color: #808080;
+}
 
 .container-gallery {
   padding-left: 15px;
@@ -63,7 +68,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 36px;
+  margin-top: 21px;
   margin-bottom: 32px;
 }
 
@@ -100,6 +105,36 @@ img {
 
 .form-gallery-btn:hover {
   background: #6c8cff;
+}
+
+.load-more {
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+.scroll-to-top {
+  margin-left: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: red;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.64px;
+  cursor: pointer;
+}
+
+.scroll-to-top:hover {
+  background-color: #6c8cff;
+  color: red;
 }
 
 .gallery-list {
@@ -200,57 +235,6 @@ img {
   border-color: #fff #fff transparent transparent;
   animation: rotation 1.5s linear infinite;
 }
-.loading {
-  display: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  position: relative;
-  animation: rotate 1s linear infinite;
-}
-
-.loading::before {
-  content: '';
-  box-sizing: border-box;
-  position: absolute;
-  inset: 0px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  animation: prixClipFix 2s linear infinite;
-}
-
-.load-more-button {
-  display: none;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4e75ff;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.load-more-button:hover {
-  background-color: #6c8cff;
-}
-/* 
-.gallery-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.gallery {
-  position: relative;
-  width: 1128px;
-  height: auto;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 24px 0;
-  margin: 0;
-} */
 
 @keyframes rotation {
   0% {
@@ -267,6 +251,10 @@ img {
   100% {
     transform: rotate(-360deg);
   }
+}
+
+.hidden {
+  display: none;
 }
 
 .hidden {
