@@ -18,7 +18,7 @@ export async function searchGalleryQuery(query, page = 1) {
         });
         return response.data;
     } catch (error) {
-        console.error("Error fetching images:", error);
+        izitoast.error("Error fetching images:", error);
         throw error;
     }
 }

@@ -1,6 +1,7 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
+const galleryList = document.querySelector('.gallery-list');
     const lightbox = new SimpleLightbox('.gallery-list a', {
         captions: true,
         captionsData: 'alt',
@@ -9,7 +10,6 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 export function createImages(data) {
 
-    const galleryList = document.querySelector('.gallery-list');
 
     let images = data.hits.map((image) =>
         `<div class="image-wrapper">
