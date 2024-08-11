@@ -29,7 +29,8 @@ export function createImages(data) {
     lightbox.refresh();
 }
 
+// const galleryList = document.querySelector('.gallery-list');
 export function clearImages() {
-    const galleryList = document.querySelector('.gallery-list');
+    
     galleryList.innerHTML = "";
 }

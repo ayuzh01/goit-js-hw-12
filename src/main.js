@@ -59,7 +59,7 @@ async function fetchImages() {
         smoothScroll();
         showScrollToTopBtn();
     } catch (error) {
-        console.error(error);
+        izitoast.error(error);
         loader.classList.add('hidden');
     }
 }
